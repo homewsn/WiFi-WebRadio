@@ -1,0 +1,64 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "make clean",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "flash",
+            "type": "shell",
+            "command": "make flash",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "monitor",
+            "type": "shell",
+            "command": "make monitor",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "menuconfig",
+            "type": "shell",
+            "command": "gnome-terminal -- sh -c 'make menuconfig'",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "partition table",
+            "type": "shell",
+            "command": "make partition_table",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "build storage",
+            "type": "shell",
+//            "command": "/opt/mkspiffs/mkspiffs -c storage -s 0x20000 build/storage.bin",
+            "command": ". .vscode/build_storage.sh",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "flash storage",
+            "type": "shell",
+            "command": "/opt/ESP8266_RTOS_SDK-3.4/components/esptool_py/esptool/esptool.py --chip esp8266 --port /dev/ttyUSB0 --baud 921600 write_flash 0xE0000 build/storage.bin",
+            "problemMatcher": [],
+            "group": "none"
+        }
+    ]
+}

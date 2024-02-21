@@ -1,0 +1,26 @@
+.bi-plus-square, .bi-check-square, .bi-x-square {
+  transition: color 0.25s ease-out;
+}
+
+.bi-pencil-square, .bi-trash {
+  transition: color 0.25s ease-out;
+  visibility: hidden;
+}
+
+.bi-plus-square:hover, .bi-check-square:hover, .bi-x-square:hover, .bi-pencil-square:hover, .bi-trash:hover {
+  color: tomato;
+}
+
+.showOkIcon, .showCancelIcon, .showEditIcon, .showDeleteIcon {
+  visibility: visible;
+}
+
+[contenteditable="true"].single-line {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+[contenteditable="true"].single-line * {
+    display: inline;
+    white-space: nowrap;
+}

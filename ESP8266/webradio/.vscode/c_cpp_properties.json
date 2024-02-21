@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "name": "alemv",
+            "includePath": [
+                "${workspaceFolder}/main/**",
+                "${workspaceFolder}/build/include/",
+                "${IDF_PATH}/components/**",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                "${workspaceFolder}/main/**",
+                "${workspaceFolder}/build/include/",
+                "${IDF_PATH}/components/**",
+                ""
+                ]
+            },
+            "defines": [
+                "__ESP_FILE__",
+                ""
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu99",
+            "cppStandard": "c++11"
+        }
+    ],
+    "version": 4
+}
+

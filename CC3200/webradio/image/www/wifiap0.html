@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebRadio</title>
+</head>
+<body>
+<form id="form">
+  <div>
+    <label for="ssid">SSID: </label>
+    <input type="text" name="ssid" id="ssid" required minlength="1" maxlength="32" size="35">
+    <span class="validity"></span>
+    <p>SSID must be 1-32 characters in length.</p>
+  </div>
+  <div>
+    <label for="password">Password: </label>
+    <input type="text" name="password" id="password" required minlength="8" maxlength="63" size="65">
+    <p>Password must be 8-63 characters in length.</p>
+  </div>
+  <div>
+    <input type="submit" id="submitBtn" value="Submit!">
+    <p id="info"></p>
+  </div>
+</form>
+<script type="text/javascript">
+window.addEventListener('load', function () {
+  const submitBtn = document.getElementById('submitBtn');
+  const form = document.getElementById("form");
+  form.addEventListener("submit",  function(e) {
+    e.preventDefault();    //stop form from submitting
+    saveData();
+  });
+  function saveData() {
+    const ssid = document.getElementById("ssid");
+    const password = document.getElementById("password");
+    const info = document.getElementById("info");
+    let data = ssid.value + '/' + password.value;
+    const xhttp = new XMLHttpRequest();
+    const url = "post_wifiap.cgi";
+    xhttp.onload = function() {
+      info.innerHTML = "The SSID and password were sent successfully. Please reboot the web radio so that it can connect to the Wi-Fi point you have chosen.";
+    }
+    xhttp.open("POST", url, true);
+    xhttp.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    xhttp.send(data);
+  }
+})
+</script>
+</body>
+</html>

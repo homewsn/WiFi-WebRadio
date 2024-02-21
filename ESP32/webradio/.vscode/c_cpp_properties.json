@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "name": "alemv",
+            "includePath": [
+                "${workspaceFolder}/main/",
+                "${workspaceFolder}/build/config/",
+                "${IDF_PATH}/components/**",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                "${workspaceFolder}/main/",
+                "${workspaceFolder}/build/config/",
+                "${IDF_PATH}/components/**",
+                ""
+                ]
+            },
+            "defines": [
+                "__ESP_FILE__",
+                "SOC_SPI_PERIPH_NUM=3",
+                ""
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu99",
+            "cppStandard": "c++11"
+        }
+    ],
+    "version": 4
+}
+

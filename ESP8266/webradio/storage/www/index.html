@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript" src="mode.js"></script>
+<script type="text/javascript">
+window.addEventListener('load', function () {
+  // WiFi Station
+  if (mode === 0) {
+    window.location.replace("/about.html");
+  }
+  // WiFi AP
+  if (mode === 2) {
+    window.location.replace("/wifiap0.html");
+  }
+})
+</script>
+</body>
+</html>

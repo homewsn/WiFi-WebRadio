@@ -1,0 +1,83 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "options": {
+        "env": {
+            "IDF_PORT": "/dev/ttyUSB1"
+        }
+    },
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": ". .vscode/build.sh",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": ". .vscode/clean.sh",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "fullclean",
+            "type": "shell",
+            "command": ". .vscode/fullclean.sh",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "flash",
+            "type": "shell",
+            "command": ". .vscode/flash.sh",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "monitor",
+            "type": "shell",
+            "command": ". .vscode/monitor.sh",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "menuconfig",
+            "type": "shell",
+            "command": "gnome-terminal -- sh -c '. .vscode/menuconfig.sh'",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "partition table",
+            "type": "shell",
+            "command": ". .vscode/partition_table.sh",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "build storage",
+            "type": "shell",
+            "command": ". .vscode/build_storage.sh",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "flash storage",
+            "type": "shell",
+            "command": ". .vscode/flash_storage.sh",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "run OpenOCD for debug",
+            "type": "shell",
+//            "command": "gnome-terminal -- sh -c '$IDF_TOOLS_PATH/tools/openocd-esp32/v0.12.0-esp32-20230921/openocd-esp32/bin/openocd -f .vscode/esp32-jlink.cfg'",
+            "command": "gnome-terminal -- sh -c '$IDF_TOOLS_PATH/tools/openocd-esp32/v0.12.0-esp32-20230921/openocd-esp32/bin/openocd -f .vscode/esp32-ft2232hl.cfg'",
+            "problemMatcher": [],
+            "group": "none"
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+/**
+ * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
+ * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
+ * @cliArgs --device "CC3235SF" --package "Default" --part "Default" --ccxxImageMode --product "simplelink_cc32xx_sdk@7.10.00.13"
+ * @versions {"tool":"1.15.0+2826"}
+ */
+
+/**
+ * Import the modules used in this configuration.
+ */
+const ImgCommands = scripting.addModule("/ti/drivers/net/imagecreator/ImgCommands");
+const General     = scripting.addModule("/ti/drivers/net/imagecreator/new_design/Device/General");
+const Ota         = scripting.addModule("/ti/drivers/net/imagecreator/new_design/Device/Ota");
+const Network     = scripting.addModule("/ti/drivers/net/imagecreator/new_design/NetworkServices/Network");
+const CertStore   = scripting.addModule("/ti/drivers/net/imagecreator/new_design/UserFiles/CertStore");
+const MCUImage    = scripting.addModule("/ti/drivers/net/imagecreator/new_design/UserFiles/MCUImage");
+const ServicePack = scripting.addModule("/ti/drivers/net/imagecreator/new_design/UserFiles/ServicePack");
+const fileTree    = scripting.addModule("/ti/drivers/net/imagecreator/new_design/UserFiles/fileTree");
+const Mac         = scripting.addModule("/ti/drivers/net/imagecreator/new_design/WiFi/Mac");
+const Radio       = scripting.addModule("/ti/drivers/net/imagecreator/new_design/WiFi/Radio");
+
+/**
+ * Write custom configuration values to the imported modules.
+ */
+ImgCommands.SLISelectCI     = "ADD_MANUALLY";
+ImgCommands.outputSLI       = "C:\\Programming\\Tests\\ti_cc3235sf_wifi_examples\\sdk_7_10_00_13\\local_time_freertos\\image\\generated_sli\\SF3235SF.sli";
+ImgCommands.sliFileManually = "generated_sli/SF3235SF.sli";
+ImgCommands.SLISelectP      = "COPY_FROM_C_I";
+
+General.ModeSelect = "development";
+
+Network.HTTP_Enabled_Roles = ["AP_HTTP_SID_1","STA_HTTP_SID_1"];
+Network.MDNS_Enabled_Roles = [];
+
+CertStore.CertStoreSelect           = "ADD_MANUALLY";
+CertStore.keyCertStoreFileInput     = "../../../../../../ti/simplelink_cc32xx_sdk_7_10_00_13/tools/cc32xx_tools/certificate-playground/certcatalogPlayGround20160911.lst";
+CertStore.keyCertStoreSignFileInput = "../../../../../../ti/simplelink_cc32xx_sdk_7_10_00_13/tools/cc32xx_tools/certificate-playground/certcatalogPlayGround20160911.lst.signed_3235.bin";
+
+MCUImage.mcuKey         = "../../../../../../ti/simplelink_cc32xx_sdk_7_10_00_13/tools/cc32xx_tools/certificate-playground/dummy-trusted-cert-key";
+MCUImage.mcuCertificate = "../../../../../../ti/simplelink_cc32xx_sdk_7_10_00_13/tools/cc32xx_tools/certificate-playground/dummy-trusted-cert";
+MCUImage.mcuFileInput   = "../iar/Debug/Exe/webradio.bin";
+
+fileTree.rootDirCfg = "userFiles";
+
+Mac.StartRoleSelect = "0";
+
+Radio.Is5GEnabledSelect = "0";

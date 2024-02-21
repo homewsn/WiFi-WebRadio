@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "GDB",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/webradio.elf",
+            "cwd": "${workspaceFolder}",
+            "miDebuggerPath": "${env:IDF_TOOLS_PATH}/tools/xtensa-esp-elf-gdb/12.1_20221002/xtensa-esp-elf-gdb/bin/xtensa-esp32-elf-gdb",
+            "setupCommands": [
+                {"text": "target remote 127.0.0.1:3333"},
+                {"text": "set remote hardware-watchpoint-limit 2"},
+                {"text": "set remotetimeout 10"},
+                {"text": "monitor reset halt"},
+                {"text": "flushregs"}
+            ]
+        }
+    ]
+}
